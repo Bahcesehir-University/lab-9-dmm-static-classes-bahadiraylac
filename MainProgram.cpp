@@ -169,20 +169,17 @@ IntArray& IntArray::operator=(const IntArray& other) {
     //         4. Copy all elements, capacity, and count
     //         5. Return *this
     //         NOTE: Do NOT call Tracker here (object already exists)
-if (this != &other) {
-        
+    if (this != &other) {
+        delete[] data ;
         capacity = other.capacity ;
         count = other.count ;
         data = new int[capacity] ;
         for (int i = 0; i < count; i++) {
             data[i] = other.data[i];
         }
-        delete[] data;   
-    }       
-
-    return *this;
+    }
+    return *this ;
 }
-
 // Add element
 bool IntArray::add(int value) {
     // TODO 10: If count < capacity, add value at data[count],
